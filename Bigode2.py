@@ -42,18 +42,18 @@ class TelegramBot:
         if eh_primeira_mensagem == True or mensagem in ('menu', 'Menu'):
             return f'''Olá bem vindo a nossa lanchonete Digite o número do hamburguer gostaria de pedir:{os.linesep}1 - Queijo MAX{os.linesep}2 - Duplo Burguer Bacon{os.linesep}3 - Triple XXX'''
         if mensagem == '1':
-            return f'''Queijo MAX - R$20,00{os.linesep}Confirmar pedido?(s/n)
+            return f'''Produto 1 - 20 reais{os.linesep}Confirmar pedido?(s/n)
             '''
         elif mensagem == '2':
-            return f'''Duplo Burguer Bacon - R$25,00{os.linesep}Confirmar pedido?(s/n)
+            return f'''Produto 2 - 25 reais{os.linesep}Confirmar pedido?(s/n)
             '''
         elif mensagem == '3':
-            return f'''Triple XXX - R$30,00{os.linesep}Confirmar pedido?(s/n)'''
+            return f'''Produto 3 - 30 reais{os.linesep}Confirmar pedido?(s/n)'''
 
         elif mensagem.lower() in ('s', 'sim'):
             return ''' Pedido Confirmado! '''
         elif mensagem.lower() in ('n', 'não'):
-            return ''' Pedido Confirmado! '''
+            return ''' Pedido cancelado! '''
         else:
             return 'Gostaria de acessar o menu? Digite "menu"'
 
