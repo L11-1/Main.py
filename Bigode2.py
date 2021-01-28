@@ -38,24 +38,28 @@ class TelegramBot:
         return json.loads(resultado.content) # Parnasianismo classico não faz sentido nenhum mas é bem legal ao mesmo tempo.
 
     # Criar uma resposta
-    def criar_resposta(self, mensagem, eh_primeira_mensagem):
-        if eh_primeira_mensagem == True or mensagem in ('menu', 'Menu'):
-            return f'''Olá bem vindo a nossa lanchonete Digite o número do hamburguer gostaria de pedir:{os.linesep}1 - Queijo MAX{os.linesep}2 - Duplo Burguer Bacon{os.linesep}3 - Triple XXX'''
-        if mensagem == '1':
-            return f'''Produto 1 - 20 reais{os.linesep}Confirmar pedido?(s/n)
+    def criar_resposta(self, mensagem, eh_primeira_mensagem): # {os.linesep} = espaço para o telegram
+        if eh_primeira_mensagem == False:
+            return f'''Olá, Meu nome é Rogerim, mas todos me chamam de bigode.{os.linesep}, Vou te dar o menu e qualquer coisa me chama!{os.linesep}'''
+        elif mensagem == ('menu', 'Menu') or mensagem == ('Bigode','Rogerim','bigode', 'garçom','rogerim'):
+            return f'''Diga ae meu chegado, seguinte hoje a brahma ta geladinha, se quiser a brahma é so dizer 'brama'.{os.linesep}, se quiser outra, temos aqui no estoque deixa eu ver...{os.linesep}{os.linesep}Temos: Skol, Heineken e Antártida!'''
+        elif mensagem == ('Brahma', 'brahma'):
+            return f'''Pode deixar, uma bem gelada pra chefia{os.linesep}Posso pedir?(s/n)
             '''
-        elif mensagem == '2':
-            return f'''Produto 2 - 25 reais{os.linesep}Confirmar pedido?(s/n)
+        elif mensagem == ('Skol','skol'):
+            return f'''Pode deixar, uma bem gelada pra chefia{os.linesep}Posso pedir?(s/n)
             '''
-        elif mensagem == '3':
-            return f'''Produto 3 - 30 reais{os.linesep}Confirmar pedido?(s/n)'''
+        elif mensagem == ('Antártida','antártida'):
+            return f'''Pode deixar, uma bem gelada pra chefia{os.linesep}Posso pedir?(s/n)'''
+        elif mensagem == ('Heineken', 'heineken'):
+            return f'''Pode deixar, uma bem gelada pra chefia{os.linesep}Posso pedir?(s/n)'''
 
         elif mensagem.lower() in ('s', 'sim'):
-            return ''' Pedido Confirmado! '''
+            return ''' Ta aqui chefia '''
         elif mensagem.lower() in ('n', 'não'):
-            return ''' Pedido cancelado! '''
+            return ''' Então decide logo né '''
         else:
-            return 'Gostaria de acessar o menu? Digite "menu"'
+            return 'Da uma boa olhada no cardapio ai senhor pq quem ganha dinheiro sem fazer nada é filosofo.'
 
     # Responder
     def responder(self, resposta, chat_id):
